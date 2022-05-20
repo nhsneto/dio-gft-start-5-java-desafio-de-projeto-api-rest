@@ -1,4 +1,4 @@
-package com.dio.desafioprojeto.padroes.service.business;
+package com.dio.desafioprojeto.padroes.business;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -7,16 +7,16 @@ import java.util.regex.Pattern;
 
 import com.dio.desafioprojeto.padroes.model.Cliente;
 
-public class Validador {
+public class ClienteValidador {
 
-  private static Validador instance;
+  private static ClienteValidador instance;
 
-  private Validador() {
+  private ClienteValidador() {
   }
 
-  public static Validador getInstance() {
+  public static ClienteValidador getInstance() {
     if (instance == null)
-      instance = new Validador();
+      instance = new ClienteValidador();
     return instance;
   }
 

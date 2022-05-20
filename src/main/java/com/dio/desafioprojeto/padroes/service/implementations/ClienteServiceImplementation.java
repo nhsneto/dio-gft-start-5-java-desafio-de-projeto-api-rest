@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dio.desafioprojeto.padroes.business.ClienteValidador;
 import com.dio.desafioprojeto.padroes.model.Avaliacao;
 import com.dio.desafioprojeto.padroes.model.AvaliacaoRepository;
 import com.dio.desafioprojeto.padroes.model.Cliente;
@@ -15,7 +16,6 @@ import com.dio.desafioprojeto.padroes.model.Endereco;
 import com.dio.desafioprojeto.padroes.model.EnderecoRepository;
 import com.dio.desafioprojeto.padroes.service.ClienteServiceStrategy;
 import com.dio.desafioprojeto.padroes.service.ViaCepService;
-import com.dio.desafioprojeto.padroes.service.business.Validador;
 
 @Service
 public class ClienteServiceImplementation implements ClienteServiceStrategy {
@@ -31,7 +31,7 @@ public class ClienteServiceImplementation implements ClienteServiceStrategy {
 
   @Override
   public void salva(Cliente cliente) {
-    if (Validador.isValido(cliente)) {
+    if (ClienteValidador.isValido(cliente)) {
       adicionaEndereco(cliente);
       adicionaAvaliacoes(cliente);
       clienteRepository.save(cliente);
